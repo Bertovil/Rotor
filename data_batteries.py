@@ -1,0 +1,21 @@
+#Dictionaries mit Startwerten - bei Änderung einmal ausführen
+
+from classes import Model, Battery, Rotor, Physics
+
+Battery_Turnigy ={
+    "bat_brand": "Turnigy",
+    "bat_type": "Lipo",
+    "bat_volt_per_cell_nominal": 3.7, #V
+    "bat_volt_per_cell_load": 3.1, #V
+    "bat_volt": 22.2, #V
+    "bat_länge_mm": 320,
+    "bat_breite_mm": 46,
+    "bat_höhe_mm": 51,
+    "bat_cells": 6,
+    "bat_capacity_Wh": 230.88, #Wh
+    "bat_capacity_usable_Wh": 184.7, #Wh
+    "bat_mass_kg": 1.5, #kg
+
+}
+
+
