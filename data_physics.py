@@ -1,99 +1,49 @@
-'''#Dictionaries mit Startwerten - bei Änderung einmal ausführen
+from classes import Physics
 
-Erde ={
-    "g": 9.80665, #m/s²
-    "dynamische Viskosität": 17.20, # *10^-6*kg/m*s
-    "kinematische Viskosität": 0.00001331, # m²/s
-    "T": 288.15, #K
-    "Dichte": 1.225, #kg/m³
-    "Altitude": 0, #m
-    "kappa_Korrektur": 1.15 # Korrekturfaktor S. 116
-}
-
-Mond ={
-    "g": 1.625, #m/s²
-    "dynamische Viskosität": 0.0, # *10^-6*kg/m*s
-    "kinematische Viskosität": 0.0, # m²/s
-    "T": 220, #K
-    "Dichte": 0.0, #kg/m³
-    "Altitude": 0, #m
-    "kappa_Korrektur": 1.0 # Korrekturfaktor S
-}
-
-Mars ={
-    "g": 3.72076, #m/s²
-    "dynamische Viskosität": 13.0, # *10^-6*kg/m*s
-    "kinematische Viskosität": 0.0000064, # m²/s
-    "T": 210, #K
-    "Dichte": 0.02, #kg/m³
-    "Altitude": 0, #m
-    "kappa_Korrektur": 1.15 # Korrekturfaktor S. 116
-}
-
-Jupiter ={
-    "g": 24.79, #m/s²
-    "dynamische Viskosität": 0.0, # *10^-6*kg/m*s
-    "kinematische Viskosität": 0.0, # m²/s
-    "T": 165, #K
-    "Dichte": 0.16, #kg/m³
-    "Altitude": 0, #m
-    "kappa_Korrektur": 1.0 # Korrekturfaktor S
-}
-
-Saturn ={
-    "g": 10.44, #m/s²
-    "dynamische Viskosität": 0.0, # *10^-6*kg/m*s
-    "kinematische Viskosität": 0.0, # m²/s
-    "T": 134, #K
-    "Dichte": 0.19, #kg/m³
-    "Altitude": 0, #m
-    "kappa_Korrektur": 1.0 # Korrekturfaktor S
-}'''
-
-List_Physics = {
-    "Erde": {
-        "g": 9.80665,
-        "dynamische Viskosität": 17.20,
-        "kinematische Viskosität": 0.00001331,
-        "T": 288.15,
-        "Dichte": 1.225,
-        "Altitude": 0,
-        "kappa_Korrektur": 1.15
-    },
-    "Mond": {
-        "g": 1.625,
-        "dynamische Viskosität": 0.0,
-        "kinematische Viskosität": 0.0,
-        "T": 220,
-        "Dichte": 0.0,
-        "Altitude": 0,
-        "kappa_Korrektur": 1.0
-    },
-    "Mars": {
-        "g": 3.72076,
-        "dynamische Viskosität": 13.0,
-        "kinematische Viskosität": 0.0000064,
-        "T": 210,
-        "Dichte": 0.02,
-        "Altitude": 0,
-        "kappa_Korrektur": 1.15
-    },
-    "Jupiter": {
-        "g": 24.79,
-        "dynamische Viskosität": 0.0,
-        "kinematische Viskosität": 0.0,
-        "T": 165,
-        "Dichte": 0.16,
-        "Altitude": 0,
-        "kappa_Korrektur": 1.0
-    },
-    "Saturn": {
-        "g": 10.44,
-        "dynamische Viskosität": 0.0,
-        "kinematische Viskosität": 0.0,
-        "T": 134,
-        "Dichte": 0.19,
-        "Altitude": 0,
-        "kappa_Korrektur": 1.0
-    }
+List_Physics = { 
+    "ERDE": Physics(
+        g= 9.80665,
+        dynViskos= 17.20,
+        kinViskos= 0.00001331,
+        T= 288.15,
+        Luftdichte_rho= 1.225,
+        altitude= 0,
+        kappa_Korrektur= 1.15
+    ),
+    "MOND": Physics(    
+        g= 1.625,
+        dynViskos= 0.0,
+        kinViskos= 0.0,
+        T= 220,
+        Luftdichte_rho= 0.0,
+        altitude= 0,
+        kappa_Korrektur= 1.0
+    ),
+    "MARS": Physics(
+        g= 3.72076,
+        dynViskos= 13.0,
+        kinViskos= 0.0000064,
+        T= 210,
+        Luftdichte_rho= 0.02,
+        altitude= 0,
+        kappa_Korrektur= 1.15
+    ),
+    "JUPITER": Physics(
+        g= 24.79,
+        dynViskos= 0.0,
+        kinViskos= 0.0,
+        T= 165,
+        Luftdichte_rho= 0.16,
+        altitude= 0,
+        kappa_Korrektur= 1.0
+    ),
+    "SATURN": Physics(
+        g= 10.44,
+        dynViskos= 0.0,
+        kinViskos= 0.0,
+        T= 134,
+        Luftdichte_rho= 0.19,
+        altitude= 0,
+        kappa_Korrektur= 1.0
+    )
 }

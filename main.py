@@ -4,6 +4,7 @@ import readline
 import os
 import atexit
 from difflib import get_close_matches
+import classes
 
 # Datenquellen importieren
 from data_models import List_Models
@@ -19,7 +20,7 @@ def verarbeite_befehl(eingabe):
     parser.add_argument("--show", choices=["param", "all"])
     parser.add_argument("--battery", type=str)
     parser.add_argument("--rotor", type=str)
-    parser.add_argument("--physik", type=str)
+    parser.add_argument("--physics", type=str)
     parser.add_argument("--calc", action="store_true")
     parser.add_argument("--simulate", action="store_true")
     parser.add_argument("--export", action="store_true")
@@ -39,7 +40,7 @@ def verarbeite_befehl(eingabe):
         print("--show param|all       – Zeige Modellparameter oder vollständigen Datensatz")
         print("--battery <NAME>       – Wähle eine Batterie")
         print("--rotor <NAME>         – Wähle ein Rotorblatt")
-        print("--physik <NAME>        – Wähle physikalische Umgebung")
+        print("--physics <NAME>       – Wähle physikalische Umgebung")
         print("--calc                 – Starte Dummy-Berechnung")
         print("--simulate             – Starte Dummy-Simulation")
         print("--export               – Exportiere Daten (Dummy)")
@@ -72,9 +73,9 @@ def verarbeite_befehl(eingabe):
 
     # Anzeigeoptionen
     if args.show == "param":
-        print(f"\n📘 Parameter von {modell['model']}:")
-        for key, value in modell.items():
-            print(f"{key}: {value}")
+        print(f"\n📘 Parameter von {modell}:")
+        modell.info()
+
     elif args.show == "all":
         print(f"\n📦 Vollständiger Datensatz für {modell['model']}:")
         print(modell)
@@ -83,9 +84,9 @@ def verarbeite_befehl(eingabe):
     if args.battery:
         battery = List_Batteries.get(args.battery.upper())
         if battery:
-            print(f"\n🔋 Batterie '{battery['name']}' ausgewählt:")
-            for k, v in battery.items():
-                print(f"{k}: {v}")
+            print(f"\n🔋 Batterie '{battery.brand} {battery.type}' ausgewählt:")
+            battery.info()
+
         else:
             print(f"❌ Batterie '{args.battery}' nicht gefunden.")
             print("Verfügbare Batterien:")
@@ -96,9 +97,8 @@ def verarbeite_befehl(eingabe):
     if args.rotor:
         rotor = List_Rotors.get(args.rotor.upper())
         if rotor:
-            print(f"\n🌀 Rotor '{rotor['profil']}' ausgewählt:")
-            for k, v in rotor.items():
-                print(f"{k}: {v}")
+            print(f"\n🌀 Rotor '{rotor.profilname}' ausgewählt:")
+            rotor.info()
         else:
             print(f"❌ Rotor '{args.rotor}' nicht gefunden.")
             print("Verfügbare Rotoren:")
@@ -106,14 +106,13 @@ def verarbeite_befehl(eingabe):
                 print(f"- {name}")
 
     # Physik auswählen
-    if args.physik:
-        physik = List_Physics.get(args.physik.upper())
-        if physik:
-            print(f"\n⚙️ Physikprofil '{args.physik.upper()}' ausgewählt:")
-            for k, v in physik.items():
-                print(f"{k}: {v}")
+    if args.physics:
+        physics = List_Physics.get(args.physics.upper())
+        if physics:
+            print(f"\n⚙️ Physikprofil '{args.physics.upper()}' ausgewählt:")
+            physics.info()
         else:
-            print(f"❌ Physikprofil '{args.physik}' nicht gefunden.")
+            print(f"❌ Physikprofil '{args.physics}' nicht gefunden.")
             print("Verfügbare Physikprofile:")
             for name in List_Physics:
                 print(f"- {name}")

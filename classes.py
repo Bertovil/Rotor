@@ -34,7 +34,7 @@ class Model:
         print("Motor kV: ", self.motor_kV, "kV")
         print("Hebelarm Heckrotor: ", self.tailrotor_hebelarm_m, "m")
 
-class Rotor:
+class Mainrotor:
     def __init__(self, profilart, profilname, anzahl, masse_kg, blatttiefe_m, blattlänge_m, durchmesser_m, max_drehzahl_rpm, cd0):
         self.profilart = profilart
         self.profilname = profilname
@@ -58,7 +58,8 @@ class Rotor:
 
 
 class Battery:
-    def __init__(self, brand, type, volt_per_cell_nominal, volt_per_cell_load, volt, länge_mm, breite_mm, höhe_mm, cells, capacity_Wh, capacity_usable_Wh, mass_kg):
+    def __init__(self, name, brand, type, volt_per_cell_nominal, volt_per_cell_load, volt, länge_mm, breite_mm, höhe_mm, cells, capacity_Wh, capacity_usable_Wh, mass_kg):
+        self.name = name
         self.brand = brand
         self.type = type
         self.volt_per_cell_nominal = volt_per_cell_nominal
@@ -73,6 +74,7 @@ class Battery:
         self.mass_kg = mass_kg
 
     def info(self):
+        print("Batterie: ", self.name)
         print("Batterie: ", self.brand, self.type)
         print("Zellenspannung unbelastet: ", self.volt_per_cell_nominal, "V")
         print("Zellenspannung unter Last: ", self.volt_per_cell_load, "V")
@@ -86,13 +88,13 @@ class Battery:
         print("Masse: ", self.mass_kg, "kg")
 
 class Physics:
-    def __init__(self, g, dynViskos, kinViskos, T, Luftdichte_rho, alt, kappa_Korrektur):
+    def __init__(self, g, dynViskos, kinViskos, T, Luftdichte_rho, altitude, kappa_Korrektur):
         self.g = g
         self.dynViskos = dynViskos
         self.kinViskos = kinViskos
         self.T = T
         self.Luftdichte_rho = Luftdichte_rho
-        self.alt = alt
+        self.altitude = altitude
         self.kappa_Korrektur = kappa_Korrektur
 
     def info(self):
@@ -101,5 +103,5 @@ class Physics:
         print("Kinematische Viskosität: ", self.kinViskos, "m²/s")
         print("Temperatur: ", self.T, "K")
         print("Luftdichte: ", self.Luftdichte_rho, "kg/m³")
-        print("Höhe über NN: ", self.alt, "m")
+        print("Höhe über NN: ", self.altitude, "m")
         print("Korrekturfaktor kappa: ", self.kappa_Korrektur)
