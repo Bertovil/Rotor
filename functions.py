@@ -4,7 +4,7 @@ from init_rotor_data import this_bat, this_model, this_rotor, this_physics
 # Funktionen zu this.model
 def takeoff_mass_kg():
     takeoff_mass_kg = this_model.net_mass_kg + this_bat.mass_kg
-    #print(takeoff_mass_kg)
+    print("Take-Off Mass:", takeoff_mass_kg, "kg")
     return takeoff_mass_kg
 
 def getriebeübersetzung_motor_HZR():

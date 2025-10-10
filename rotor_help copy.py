@@ -1,0 +1,2 @@
+import functions
+help(functions)
