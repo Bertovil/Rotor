@@ -1,9 +1,10 @@
 import math
-from init_rotor_data import this_bat, this_model, this_rotor, this_physics
+#from init_rotor_data import this_bat, this_model, this_rotor, this_physics
+from main import this_battery, this_model, this_rotor, this_physics  
 
 # Funktionen zu this.model
 def takeoff_mass_kg():
-    takeoff_mass_kg = this_model.net_mass_kg + this_bat.mass_kg
+    takeoff_mass_kg = this_model.net_mass_kg + this_battery.mass_kg
     print("Take-Off Mass:", takeoff_mass_kg, "kg")
     return takeoff_mass_kg
 
@@ -111,7 +112,7 @@ def rotor_reynoldszahl():
 
 # Rotorkopf-Drehzahlrechner
 def Rotorkopfdrehzahl(Zellspannung_Last, Wirkungsgrad, Regleröffnung):
-    calc_rotordrehzahl = this_bat.cells*Zellspannung_Last*this_model.motor_kV*this_model.zähne_motorritzel/this_model.zähne_HZR*Wirkungsgrad*Regleröffnung
+    calc_rotordrehzahl = this_battery.cells*Zellspannung_Last*this_model.motor_kV*this_model.zähne_motorritzel/this_model.zähne_HZR*Wirkungsgrad*Regleröffnung
     print("berechnete Rotorkopfdrehzahl: " , "\t", calc_rotordrehzahl, "RPM")
     return calc_rotordrehzahl
 

@@ -35,7 +35,7 @@ class Model:
         print("Hebelarm Heckrotor: ", self.tailrotor_hebelarm_m, "m")
 
 class Mainrotor:
-    def __init__(self, profilart, profilname, anzahl, masse_kg, blatttiefe_m, blattlänge_m, durchmesser_m, max_drehzahl_rpm, cd0):
+    def __init__(self, profilart, profilname, anzahl, masse_kg, blatttiefe_m, blattlänge_m, durchmesser_m, drehzahl_rpm, cd0):
         self.profilart = profilart
         self.profilname = profilname
         self.anzahl = anzahl
@@ -43,7 +43,7 @@ class Mainrotor:
         self.blatttiefe_m = blatttiefe_m
         self.blattlänge_m = blattlänge_m
         self.durchmesser_m = durchmesser_m
-        self.max_drehzahl_rpm = max_drehzahl_rpm
+        self.drehzahl_rpm = drehzahl_rpm
         self.cd0 = cd0
 
     def info(self):
@@ -53,7 +53,7 @@ class Mainrotor:
         print("Blatttiefe: ", self.blatttiefe_m, "m")
         print("Blattlänge: ", self.blattlänge_m, "m")
         print("Durchmesser: ", self.durchmesser_m, "m")
-        print("Max. Drehzahl: ", self.max_drehzahl_rpm, "RPM")
+        print("MDrehzahl: ", self.drehzahl_rpm, "RPM")
         print("CD0: ", self.cd0)
 
 
