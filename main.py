@@ -127,21 +127,13 @@ def verarbeite_befehl(eingabe):
                     print(f"- {name}")
             return
 
-    # Anzeigeoptionen
-    if args.show == "param":
-        print(f"\n📘 Parameter von {modell}:")
-        modell.info()
-    elif args.show == "all":
-        print(f"\n📦 Vollständiger Datensatz für {modell}:")
-        print(modell)
-
     # Batterie auswählen
     if args.battery:
         battery = List_Batteries.get(args.battery.upper())
         if battery:
             this_battery = battery
-            print(f"\n🔋 Batterie '{battery.brand} {battery.type}' ausgewählt:")
-            battery.info()
+            #print(f"\n🔋 Batterie '{battery.brand} {battery.type}' ausgewählt.")
+            #battery.info()
         else:
             print(f"❌ Batterie '{args.battery}' nicht gefunden.")
             print("Verfügbare Batterien:")
@@ -153,8 +145,8 @@ def verarbeite_befehl(eingabe):
         rotor = List_Rotors.get(args.rotor.upper())
         if rotor:
             this_rotor = rotor
-            print(f"\n🌀 Rotor '{rotor.profilname}' ausgewählt:")
-            rotor.info()
+            #print(f"\n🌀 Rotor '{rotor.profilname}' ausgewählt.")
+            #rotor.info()
         else:
             print(f"❌ Rotor '{args.rotor}' nicht gefunden.")
             print("Verfügbare Rotoren:")
@@ -166,13 +158,46 @@ def verarbeite_befehl(eingabe):
         physics = List_Physics.get(args.physics.upper())
         if physics:
             this_physics = physics
-            print(f"\n⚙️ Physikprofil '{args.physics.upper()}' ausgewählt:")
-            physics.info()
+            #print(f"\n⚙️ Physikprofil '{args.physics.upper()}' ausgewählt")
+            #physics.info()
         else:
             print(f"❌ Physikprofil '{args.physics}' nicht gefunden.")
             print("Verfügbare Physikprofile:")
             for name in List_Physics:
                 print(f"- {name}")
+
+    # Anzeigeoptionen
+    if args.show == "param":
+        if this_model:
+            print(f"\n📘 Parameter von Modell '{modell}':")
+            modell.info()
+        if this_battery:
+            print(f"\n🔋 Parameter von Batterie '{battery}':")
+            battery.info()
+        if this_rotor:
+            print(f"\n🌀 Parameter von Rotor '{rotor}':")
+            rotor.info()
+        if this_physics:
+            print(f"\n⚙️ Parameter von Physikprofil '{physics}':")
+            physics.info()
+        if not any([this_model, this_battery, this_rotor, this_physics]):
+            print("ℹ️ Keine Datenquelle ausgewählt. Bitte gib z. B. --model oder --battery an.")
+
+    elif args.show == "all":
+        if this_model:
+            print(f"\n📦 Vollständiger Datensatz für {modell}:")
+            print(modell)
+        if this_battery:
+            print(f"\n📦 Vollständiger Datensatz für Batterie '{battery}':")
+            print(battery)
+        if this_rotor:
+            print(f"\n📦 Vollständiger Datensatz für Rotor '{rotor}':")
+            print(rotor)
+        if this_physics:
+            print(f"\n📦 Vollständiger Datensatz für Physikprofil '{physics}':")
+            print(physics)
+        if not any([this_model, this_battery, this_rotor, this_physics]):
+            print("ℹ️ Keine Datenquelle ausgewählt. Bitte gib z. B. --model oder --battery an.")
 
     # Berechnung ausführen
     if args.calc and args.calc.lower() != "list":

@@ -53,7 +53,7 @@ class Mainrotor:
         print("Blatttiefe: ", self.blatttiefe_m, "m")
         print("Blattlänge: ", self.blattlänge_m, "m")
         print("Durchmesser: ", self.durchmesser_m, "m")
-        print("MDrehzahl: ", self.drehzahl_rpm, "RPM")
+        print("Drehzahl: ", self.drehzahl_rpm, "RPM")
         print("CD0: ", self.cd0)
 
 
