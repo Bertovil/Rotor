@@ -2,6 +2,7 @@
 Helicopter Calculations
 
 Purpose: Little Tool to perform calculations on model helicopters for performance analysis and comparisions of different types and brands.
+
 Structure: 
   - main: start main.py for interaction with the console
   - classes: contains information for building instances from data, new data is stored in data-files
@@ -17,29 +18,15 @@ Usage:
   1. start main.py
   2. enter data string to populate each category with a data set. Categories to set are [model, rotor, battery, physics]    
   3. possible actions with data are:
-
-
-    Perform a single calculation with data sets:
-     ```shell
-       --calc [name of function]
-     ```
-     
-     List all available calculation functions:
-     ```shell
-       --calc list
-     ```
-
-      Show parameters of chosen data sets:
-      ```shell
-       --show param 
-      ```
-
-      Show object names of chosen data sets:
-      ```shell
-       --show all
-       ```
+   
+| Command   | Comment                                                                 |
+| :----- | :---------------------------------------------------------------------- |
+| ```shell --calc [name of function] ```          | Perform a single calculation with data sets|
+| ```shell --calc list ```                        | List all available calculation functions   |
+| ```shell --show param ```                       | Show parameters of chosen data sets        |
+|```shell --show all ```                          | Show object names of chosen data sets      |
        
-4. example usage:
+5. example usage:
 
 ```shell
 --model LOGO600SX --rotor NACA0009 --battery TURNIGY5000 --physics ERDE --calc induzierter_Durchflussgrad_lambda_i
